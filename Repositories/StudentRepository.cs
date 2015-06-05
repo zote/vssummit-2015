@@ -35,8 +35,12 @@ namespace Abt.Repositories
         public void Delete(int id)
         {
             var student = _db.Students.Where(x => x.Id == id).FirstOrDefault();
-            _db.Students.Remove(student);
-            _db.SaveChanges();
+   
+            if (student != null)
+            {
+            	_db.Students.Remove(student);
+            	_db.SaveChanges();
+            }
         }
 	}
 }
